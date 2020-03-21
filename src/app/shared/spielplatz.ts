@@ -1,4 +1,6 @@
 export interface Spielplatz {
-    id: string;
+    name: string;
     beschreibung: string;
+    coords: string;
+    link: string;
 }

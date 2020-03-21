@@ -1,3 +1,12 @@
-<p>
-  spielplatz-liste works!
-</p>
+
+<!--
+  <ng-container *ngIf="loading$ | async">
+  Lade, bitte warten!
+</ng-container> -->
+
+<h5>Spielplätze in deiner Nähe: {{ spielplaetze.length }}</h5>
+  <div
+    *ngFor="let p of spielplaetze; index as i; odd as o"
+    [ngClass]="{ grayBackground: o }">
+    {{i + 1}}. {{p.name}}
+  </div>
