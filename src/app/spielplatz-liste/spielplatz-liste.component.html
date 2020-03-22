@@ -3,9 +3,23 @@
   Lade, bitte warten!
 </ng-container> -->
 
-<h5>Spielplätze in deiner Nähe: {{ spielplaetze.length }}</h5>
-  <div
-    *ngFor="let p of spielplaetze; index as i; odd as o"
-    [ngClass]="{ grayBackground: o }">
-    {{i + 1}}. {{p.name}}
-  </div>
+<h2>Spielplätze in deiner Nähe: {{ spielplaetze.length }}</h2>
+
+<table *ngIf="spielplaetze">
+  <thead>
+  <tr>
+    <th>Nr.</th>
+    <th>Name</th>
+    <th>Beschreibung</th>
+    <th>Koordinaten</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let p of spielplaetze; let i=index">
+    <td>{{i+1}}</td>
+    <td><a target="_blank" rel="noopener" href="{{p.link}}">{{p.name}}</a></td>
+    <td>{{p.beschreibung}}</td>
+    <td>{{p.coords}}</td>
+  </tr>
+  </tbody>
+</table>
