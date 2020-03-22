@@ -1,3 +1,32 @@
-<p>
-  neuer-eintrag works!
-</p>
+<form [formGroup]="eintragForm" (ngSubmit)="submitForm()">
+
+  <div class="form-group">
+    <label for="name">Name*</label><br>
+    <input formControlName="name" type="text" class="form-control" id="name">
+  </div>
+
+  <div class="feedback-red" *ngIf="isInvalid('name')">
+    Please enter a valid name!
+  </div>
+
+  <div class="form-group">
+    <label for="beschreibung">Beschreibung*</label><br>
+    <textarea formControlName="beschreibung" class="form-control" id="beschreibung"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="link">Link</label><br>
+    <input formControlName="link" type="text" class="form-control" id="link">
+  </div>
+
+  <div class="form-group">
+    <div class="feedback-red" *ngIf="eintragForm.invalid">
+        Please fill in all values.
+      </div>
+    <button
+      [disabled]="eintragForm.invalid"
+      class="btn btn-primary"
+      type="submit">Create</button>
+  </div>
+
+</form>
